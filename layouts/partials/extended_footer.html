@@ -1,0 +1,23 @@
+<!-- Click any figure on the page (except the headshot) to see it full screen.
+     Click anywhere or press Esc to close. -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarged figure">
+  <img alt="">
+</div>
+<script>
+  (function () {
+    var box = document.getElementById("lightbox");
+    var big = box.querySelector("img");
+    document.body.appendChild(box);   // escape the footer so it covers the whole screen
+    document.querySelectorAll(".index-content img:not(.headshot)").forEach(function (img) {
+      img.classList.add("zoomable");
+      img.addEventListener("click", function () {
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt;
+        box.classList.add("is-open");
+      });
+    });
+    function close() { box.classList.remove("is-open"); }
+    box.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  })();
+</script>

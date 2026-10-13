@@ -1,0 +1,29 @@
+<header class="site-nav">
+  <nav class="site-nav__inner" aria-label="Sections">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>
+
+<script>
+  // Highlight the nav link for the section currently on screen.
+  document.addEventListener("DOMContentLoaded", function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll(".site-nav a"));
+    var sections = links
+      .map(function (a) { return document.getElementById(decodeURIComponent(a.hash.slice(1))); })
+      .filter(Boolean);
+    if (!sections.length) return;
+    function update() {
+      var current = null;
+      sections.forEach(function (s) {
+        if (s.getBoundingClientRect().top < 120) current = s.id;
+      });
+      links.forEach(function (a) {
+        a.classList.toggle("is-active", a.hash.slice(1) === current);
+      });
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+  });
+</script>

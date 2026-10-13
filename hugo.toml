@@ -1,0 +1,53 @@
+baseURL = "https://xyjin7777.github.io/"
+locale = "en-us"
+title = "Xiangyu Jin"
+theme = "re-terminal"
+
+[markup.goldmark.renderer]
+  # Lets the headshot <img> tag in content/_index.md render.
+  unsafe = true
+
+[params]
+  contentTypeName = "blog"
+  themeColor = "paper"
+  centerTheme = true
+  fullWidthTheme = false
+  readingTime = false
+  showLastUpdated = false
+
+[languages.en.params]
+  languageName = "English"
+  title = "Xiangyu Jin"
+  subtitle = "Observational astronomer · cosmic reionization, high-redshift quasars and galaxies"
+  owner = "Xiangyu Jin"
+  keywords = "astronomy, reionization, quasars, JWST, intergalactic medium"
+  copyright = "© 2026 Xiangyu Jin"
+
+# Floating navigation bar. Each url is an anchor to a section heading in
+# content/_index.md ("## About Me" becomes #about-me). To add a link, copy a
+# block and point it at another heading, e.g. "#other-activities".
+[[languages.en.menu.main]]
+  identifier = "about"
+  name = "About Me"
+  url = "#about-me"
+  weight = 1
+[[languages.en.menu.main]]
+  identifier = "research"
+  name = "Research"
+  url = "#research"
+  weight = 2
+[[languages.en.menu.main]]
+  identifier = "publications"
+  name = "Publications"
+  url = "#publications"
+  weight = 3
+[[languages.en.menu.main]]
+  identifier = "others"
+  name = "Other Activities"
+  url = "#other-activities"
+  weight = 4
+[[languages.en.menu.main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "#contact"
+  weight = 5
